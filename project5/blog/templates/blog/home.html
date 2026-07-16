@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>templates Basics</title>
+</head>
+<body>
+    <!-- This is 1st commment -->
+    <p>This is Templates to demonstarte the page </p>
+    <p>Welcome to the blog home page !</p>
+    <!-- single vairable -->
+     <p>Name:{{name}}</p>
+     <p>Age:{{age}}</p>
+     <p>skill:{{skill}}</p>
+     <p>User Name : {{user.name}}</p>
+     <p>User age : {{user.age}}</p>
+
+     <h1>blog information</h1>
+     <p>Title:{{blog.title}}</p>
+     <p>Author Name:{{blog.author.name}}</p>
+     <p>created_at:{{blog.created_at}}</p>
+     <p>content:{{blog.content|safe}}</p>
+
+     <!-- Default Value -->
+      <p>Default value:{{empty|default:"No value"}}</p>
+
+</body>
+</html>
