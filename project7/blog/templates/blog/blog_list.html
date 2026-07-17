@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>template - 3</title>
+</head>
+<body>
+    <h1>Blog List Page</h1>
+    
+    <!-- FIXED: Changed blog.1 to blogs.1 to match context variable -->
+    {% if blogs.1.is_featured %}
+    <h2>Featured blog : {{blogs.1.title}} - Regular blogs</h2>
+    {% else %}
+    <h2>Not featured blog : {{blogs.1.title}}</h2>
+    {% endif %}
+
+    <!-- for loop condition -->
+     <ul>
+        {% for blog in blogs %}
+         <li>{{forloop.counter}}. {{blog.title}} - {{blog.author}} </li>
+         {% empty %}
+         <li>No blogs available.</li>
+         {% endfor %}
+     </ul>
+
+   <!-- with condition or keyword -->
+    {% with blogs|length as total_blogs %}
+    <p>Total blogs : {{ total_blogs }}</p>
+    {% endwith %}
+
+    <hr/>
+    <h2>Blogs in Table</h2>
+    <table border='1' cellpadding='5' cellspacing='0'>
+        {% for blog in blogs %}
+        <tr style="background-color: {% cycle 'lightblue' 'lightgreen' %};">
+            <td>{{forloop.counter}}</td>
+            <td>{{blog.title}}</td>
+            <td>{{blog.author}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <!-- First Of -->
+     <p>Author :{% firstof blog.1.author "Anoymous" %}</p>
+
+     <!-- varbatim feature  which helps to passing as an html tempalte -->
+      {% verbatim %}
+      <p>Author : {{blog.1.author}}</p>
+      {% endverbatim %}
+
+      <!-- autoscape provide security from hacker or external malware   -->
+       <h2>Autoscape Example</h2>
+       <p>default(Safe Escaped) :{{html_code}}</p>
+       <p>autoescape Off:{{html_code|safe}}</p>
+       {% autoescape off %}
+       <p>autoescape Off:{{html_code}}</p>
+       {% endautoescape %}
+
+
+</body>
+</html>
