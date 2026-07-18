@@ -33,7 +33,7 @@
     <h2>Blogs in Table</h2>
     <table border='1' cellpadding='5' cellspacing='0'>
         {% for blog in blogs %}
-        <tr style="background-color: {% cycle 'lightblue' 'lightgreen' %};">
+        <!-- <tr style="background-color: {% cycle 'lightblue' 'lightgreen' %};"> -->
             <td>{{forloop.counter}}</td>
             <td>{{blog.title}}</td>
             <td>{{blog.author}}</td>
