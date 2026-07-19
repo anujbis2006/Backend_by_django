@@ -72,7 +72,7 @@ header nav ul li a:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: url('../images/hero.jpg') no-repeat center center/cover;
+  background: url('./images/hero.png') no-repeat center center/cover;
   color: #fff;
 }
 
